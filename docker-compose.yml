@@ -1,0 +1,45 @@
+version: '3.7'
+services:
+  db:
+    env_file: .env
+    image: postgres:15
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - 15432:15432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  redis:
+    env_file: .env
+    image: redis:alpine
+  app:
+    env_file:
+      - .env
+    build:
+      context: ./app
+        #command: bash -c "/app/run.sh"
+      #command: bash -c "tail -f /dev/null"
+    volumes:
+      - ./app:/app
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+      - redis
+      - svc
+  svc:
+    env_file:
+      - .env
+    build:
+      context: ./svc
+    command: bash -c "tail -f /dev/null"
+      #    command: bash -c "/svc/run.sh"
+    volumes:
+      - ./svc:/svc
+    ports:
+      - 3030:3030
+    depends_on:
+      - db
+      - redis

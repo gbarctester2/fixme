@@ -1,0 +1,13 @@
+secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>
+encryption_key: <%= ENV['ENCRYPTION_KEY'] %>
+auth_keys: 
+- <%= ENV['PERMISSIONS_API_AUTH_TOKEN'] %>
+redis:
+  url: <%= ENV['REDIS_URL'] %>
+  pool_size: <%= ENV['REDIS_POOL_SIZE'] || 20 %>
+  timeout: <%= ENV['REDIS_TIMEOUT'] || 5000 %>
+ssl:
+  verify: <%= ENV['SSL_VERIFY'] || 'true'  %>
+sentry:
+  dsn: <%= ENV['SENTRY_DSN'] %>
+  sample_rate: <%= ENV['SENTRY_SAMPLE_RATE'] || '1.0' %>

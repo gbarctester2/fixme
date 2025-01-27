@@ -1,0 +1,31 @@
+<div id="<%= dom_id user %>">
+  <p>
+    <strong>Name:</strong>
+    <%= user.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= user.email %>
+  </p>
+
+  <p>
+    <strong>Login:</strong>
+    <%= user.login %>
+  </p>
+
+  <p>
+    <strong>Sync Status:</strong>
+    <%= user.sync_status || "FAIL" %> 
+  [SYNC BUTTON CALLING THE svc SERVICE IS MISSING HERE ]
+  </p>
+
+  <p>
+    <strong>Redis Status:</strong>
+    <%= get_user_status(user) %> [SHOULDN'T FAIL]
+  </p>
+  <% if user.login == 'bb' %>
+    delete me using this button which doesn't exist yet -> [DELETE]
+  <%end%>
+
+</div>

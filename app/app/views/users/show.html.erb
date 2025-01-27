@@ -1,0 +1,8 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+  <p>User status from redis: <%= get_user_status(@user) %></p>
+<div>
+  <%= link_to "Back to users", users_path %>
+</div>
