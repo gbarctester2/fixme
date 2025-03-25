@@ -24,6 +24,11 @@
     <strong>Redis Status:</strong>
     <%= get_user_status(user) %> [SHOULDN'T FAIL]
   </p>
+
+  <p>
+    <strong>Key from backend:</strong>
+    <%= get_keyval(user) %> [SHOULDN'T FAIL]
+  </p>
   <% if user.login == 'bb' %>
     delete me using this button which doesn't exist yet -> [DELETE]
   <%end%>
