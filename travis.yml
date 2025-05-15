@@ -1,0 +1,6 @@
+dist: focal
+language: c
+vm:
+  create:
+    name: 'testimg1'
+script: echo "testtest"
