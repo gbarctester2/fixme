@@ -43,15 +43,3 @@ services:
     depends_on:
       - db
       - redis
-  svcgo:
-    env_file:
-      - .env
-    build:
-      context: ./svcgo
-    volumes:
-      - ./svcgo:/svcgo
-    ports:
-      - 8888:8888
-    depends_on:
-      - db
-      - redis

@@ -2,7 +2,6 @@
 
 $LOAD_PATH.unshift 'lib'
 
-require 'sentry-ruby'
 require 'active_record'
 require 'fixme/service'
 

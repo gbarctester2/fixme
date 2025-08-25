@@ -12,7 +12,7 @@ module Service
         payload = JSON.parse(payload)
         if payload.include?('user_id')
           if event == 'sync'
-            # TODO
+            ::User.find(payload['user_id'])&.update!(sync_status: "OK")
           end
         end
 
